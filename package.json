@@ -4,7 +4,8 @@
   "description": "build webpack and my own vue ui",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "dev": "webpack ./src/main.js --config ./build/webpack.config.js"
   },
   "keywords": [
     "ui",
