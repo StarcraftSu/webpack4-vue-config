@@ -1,0 +1,21 @@
+{
+  "name": "muse-ui",
+  "version": "1.0.0",
+  "description": "build webpack and my own vue ui",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "ui",
+    "webpack",
+    "vue"
+  ],
+  "author": "StarcraftSu",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  }
+}
