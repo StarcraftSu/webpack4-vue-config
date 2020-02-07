@@ -10,5 +10,8 @@ module.exports = {
         filename:'js/[name].[hash:4].js',
         chunkFilename:'js/[name].[hash:4].js',
         publicPath: '/'
+    },
+    module:{
+        
     }
 }
