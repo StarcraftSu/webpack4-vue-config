@@ -10,6 +10,18 @@ export default {
     
 }
 </script>
-<style lang="scss" scoped>
-
+<style lang="scss">
+    *,
+    *::after,
+    *::before,
+    {
+        margin:0;
+        padding:0;
+    }
+    #app{
+        width:80%;
+        margin:0 auto;
+        background:#eee;
+        font-size:22px;
+    }
 </style>

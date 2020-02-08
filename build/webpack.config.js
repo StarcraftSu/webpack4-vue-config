@@ -25,18 +25,35 @@ module.exports = {
                 ]
             },
             {
-                test:/\.(css|sass|scss)$/,
+                test:/\.vue$/,
+                use:[
+                    {
+                        loader:"vue-loader",
+                        options:{
+                            loaders: {
+                                css:"vue-style-loader!css-loader",
+                                scss: "vue-style-loader!css-loader!sass-loader" // <style lang="scss">
+                            },
+                            compilerOptions:{
+                                preserveWhitespace:false
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                test:/\.(sass|scss)$/,
                 use:[
                     {
                         loader:"style-loader",
                     },
                     {
-                        loader:"style-loader",
+                        loader:"css-loader",
                     },
                     {
                         loader:"sass-loader",
                         options:{
-                            implementation:require('dart-sass') //转换scss语法，结合sass-loader使用，替代node-sass
+                            implementation:require("dart-sass") //转换scss语法，结合sass-loader使用，替代node-sass
                         }
                     }
 
@@ -84,19 +101,6 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test:/\.vue$/,
-                use:[
-                    {
-                        loader:'vue-loader',
-                        options:{
-                            compilerOptions:{
-                                preserveWhitespace:false
-                            }
-                        }
-                    }
-                ]
-            }
         ]
     },
     //扩展名，别名，第三方包
