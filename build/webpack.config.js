@@ -1,5 +1,5 @@
 const path = require('path')
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 module.exports = {
     mode: 'development',
     entry: {
@@ -81,13 +81,36 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test:/\.vue$/,
+                use:[
+                    {
+                        loader:'vue-loader',
+                        options:{
+                            compilerOptions:{
+                                preserveWhitespace:false
+                            }
+                        }
+                    }
+                ]
             }
         ]
+    },
+    //扩展名，别名，第三方包
+    resolve:{
+        alias:{
+            'vue$':'vue/dist/vue.runtime.esm.js',
+            '@':path.resolve(__dirname,'../src'),
+            //添加 resolve.extensiions属性，方便引入依赖或者文件的时候可以省略后缀
+            extensions:['*','.js','vue']
+        }
     },
     plugins:[
         new htmlWebpackPlugin({
             template: path.resolve(__dirname,'../public/index.html'),
             filename: path.resolve(__dirname,'../dist/index.html')
-        })
+        }),
+        new VueLoaderPlugin()
     ]
 }
