@@ -1,5 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 module.exports = {
     mode: 'development',
@@ -102,16 +103,16 @@ module.exports = {
     resolve:{
         alias:{
             'vue$':'vue/dist/vue.runtime.esm.js',
-            '@':path.resolve(__dirname,'../src'),
-            //添加 resolve.extensiions属性，方便引入依赖或者文件的时候可以省略后缀
-            extensions:['*','.js','vue']
-        }
+            '@':path.resolve(__dirname,'../src'), 
+        },
+        //添加 resolve.extensions属性，方便引入依赖或者文件的时候可以省略后缀
+        extensions:['*','.js','vue']
     },
     devServer:{
-        host:'0,0,0,0',
-        hot:true,
-        port:9000,
-        contentBase:'./dist'
+        host: 'localhost', // can be overwritten by process.env.HOST
+        port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+        contentBase:'./dist',
+        historyApiFallback:true
     },
     plugins:[
         new htmlWebpackPlugin({

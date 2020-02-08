@@ -1,11 +1,8 @@
-const p = new Promise((res,rej)=>{
-    setTimeout(()=>{
-        res('Promise resolved')
-    },3000)
-}).then(res=>{
-    console.log(res)
-})
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router/router.js'
 
-let es6 = 'es6'
-
-var es5 = 'es5'
+new Vue({
+    router,
+    render:h => h(App)
+}).$mount('#app')

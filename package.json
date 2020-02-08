@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "dev": "webpack ./src/main.js --config ./build/webpack.config.js"
+    "dev": "webpack-dev-server --config ./build/webpack.config.js --open --inline --hot"
   },
   "keywords": [
     "ui",
@@ -15,7 +15,10 @@
   "author": "StarcraftSu",
   "license": "MIT",
   "dependencies": {
-    "core-js": "2"
+    "core-js": "2",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
