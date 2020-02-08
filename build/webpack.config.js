@@ -1,5 +1,6 @@
 const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const webpack = require('webpack')
 module.exports = {
     mode: 'development',
     entry: {
@@ -106,11 +107,19 @@ module.exports = {
             extensions:['*','.js','vue']
         }
     },
+    devServer:{
+        host:'0,0,0,0',
+        hot:true,
+        port:9000,
+        contentBase:'./dist'
+    },
     plugins:[
         new htmlWebpackPlugin({
             template: path.resolve(__dirname,'../public/index.html'),
             filename: path.resolve(__dirname,'../dist/index.html')
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new webpack.NamedChunksPlugin(),
+        new webpack.HotModuleReplacementPlugin() //启动热更新
     ]
 }
