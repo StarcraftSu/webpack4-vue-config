@@ -24,4 +24,5 @@ export default {
         background:#eee;
         font-size:22px;
     }
+    
 </style>
