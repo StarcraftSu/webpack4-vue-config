@@ -41,5 +41,11 @@ module.exports = {
                 ]
             }
         ]
-    }
+    },
+    plugins:[
+        new htmlWebpackPlugin({
+            template: path.resolve(__dirname,'../public/index.html'),
+            filename: path.resolve(__dirname,'../dist/index.html')
+        })
+    ]
 }
