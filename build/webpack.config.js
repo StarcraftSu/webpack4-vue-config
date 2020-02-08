@@ -21,6 +21,24 @@ module.exports = {
                         loader:'babel-loader'
                     }
                 ]
+            },
+            {
+                test:/\.(css|sass|scss)$/,
+                use:[
+                    {
+                        loader:"style-loader",
+                    },
+                    {
+                        loader:"style-loader",
+                    },
+                    {
+                        loader:"sass-loader",
+                        options:{
+                            implementation:require('dart-sass') //转换scss语法，结合sass-loader使用，替代node-sass
+                        }
+                    }
+
+                ]
             }
         ]
     }
