@@ -39,6 +39,48 @@ module.exports = {
                     }
 
                 ]
+            },
+            {
+                test:/\.(jpe?g|png|gif)$/i,
+                use:[
+                    {
+                        loader:"url-loader",
+                        options:{
+                            limit:5120,
+                            esModule:false,
+                            fallback:'file-loader',
+                            name:'images/[name].[hash:4].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
+                test:/\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                use:[
+                    {
+                        loader:'url-loader',
+                        options:{
+                            limit:5120,
+                            esModule:false,
+                            fallback:'file-loader',
+                            name:'media/[name].[hash:4].[ext]'
+                        }
+                    }
+                ]
+            },
+            {
+                test:/\.(woff2?|eot|ttfotf)(\?.*)?$/i,
+                use:[
+                    {
+                        loader: 'url-loader',
+                        options:{
+                            limit:5120,
+                            esModule:false,
+                            fallback:'file-loader',
+                            name:'fonts/[name].[hash:4].[ext]'
+                        }
+                    }
+                ]
             }
         ]
     },
