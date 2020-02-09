@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '@/pages/home.vue'
-import Story from '@/pages/story.vue'
+// import Home from '@/pages/home.vue'
+// import Story from '@/pages/story.vue'
 
 Vue.use(VueRouter)
 
@@ -9,12 +9,12 @@ let routes = [
   {
     path: '/home',
     name: '首页',
-    component: Home
+    component: resolve => require(['@/pages/home.vue'],resolve)
   },
   {
     path: '/story',
     name: '测试页',
-    component: Story
+    component: resolve => require(['@/pages/story.vue'],resolve)
   }
 ]
 

@@ -2,6 +2,7 @@ const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+const TerserPlugin = require('terser-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
@@ -102,6 +103,27 @@ module.exports = {
             },
         ]
     },
+    optimization: {
+        concatenateModules: true,
+        splitChunks:{
+            chunks:'all'
+        },
+        minimize:true,
+        minimizer:[
+            new TerserPlugin({
+                cache:true, //very important, gotta open it
+                parallel:true,
+                sourceMap:true,
+                terserOptions:{
+                    output: {
+                        ecma: 5,
+                        comments: false,
+                        ascii_only: true,
+                    },
+                }
+            })
+        ]
+    },
     //扩展名，别名，第三方包
     resolve:{
         alias:{
@@ -115,7 +137,10 @@ module.exports = {
         host: 'localhost', // can be overwritten by process.env.HOST
         port: 8081, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         contentBase:'./dist',
-        historyApiFallback:true
+        hot:true,
+        compress: true,
+        quiet: true,
+        historyApiFallback:true // to enable vue-router history mode
     },
     plugins:[
         new htmlWebpackPlugin({
