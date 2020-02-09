@@ -10,7 +10,7 @@ export default {
     
 }
 </script>
-<style lang="scss">
+<style>
     *,
     *::after,
     *::before,
@@ -18,11 +18,12 @@ export default {
         margin:0;
         padding:0;
     }
-    #app{
+    #app{   
         width:80%;
         margin:0 auto;
-        background:#eee;
+        background:cornflowerblue;
         font-size:22px;
+        color:white;
     }
-    
+
 </style>

@@ -30,10 +30,6 @@ module.exports = {
                     {
                         loader:"vue-loader",
                         options:{
-                            loaders: {
-                                css:"vue-style-loader!css-loader",
-                                scss: "vue-style-loader!css-loader!sass-loader" // <style lang="scss">
-                            },
                             compilerOptions:{
                                 preserveWhitespace:false
                             }
@@ -42,8 +38,11 @@ module.exports = {
                 ]
             },
             {
-                test:/\.(sass|scss)$/,
+                test:/\.(css|sass|scss)$/,
                 use:[
+                    {
+                        loader:"vue-style-loader"
+                    },
                     {
                         loader:"style-loader",
                     },
