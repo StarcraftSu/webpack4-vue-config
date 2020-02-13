@@ -3,6 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     mode: 'development',
     entry: {
@@ -143,6 +144,7 @@ module.exports = {
         historyApiFallback:true // to enable vue-router history mode
     },
     plugins:[
+        new CleanWebpackPlugin(),
         new htmlWebpackPlugin({
             template: path.resolve(__dirname,'../public/index.html'),
             filename: path.resolve(__dirname,'../dist/index.html')

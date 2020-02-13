@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div>This is not Jimmy</div>
+        <div>This is Jimmy</div>
         <router-view></router-view>
     </div>
 </template>

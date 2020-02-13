@@ -1,0 +1,13 @@
+/*! ModuleConcatenation bailout: Module uses Hot Module Replacement */
+
+/*! exports provided: default */
+
+/*! exports provided: render, staticRenderFns */
+
+/*!*****************************!*\
+  !*** ./src/pages/story.vue ***!
+  \*****************************/
+
+/*!************************************************************************!*\
+  !*** ./src/pages/story.vue?vue&type=template&id=6a6cbea1& + 1 modules ***!
+  \************************************************************************/
